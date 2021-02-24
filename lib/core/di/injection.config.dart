@@ -10,6 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../features/home/view_models/add_todo_bottom_sheet_view_model.dart';
+import '../../features/home/sub_views/delete_todo_bottom_sheet.dart';
 import '../../features/home/view_models/home_view_model.dart';
 import '../services/local_storage_service.dart';
 import '../../features/login/view_models/login_view_model.dart';
@@ -43,6 +44,8 @@ GetIt $initGetIt(
         get<NavigationService>(),
         get<LocalStorageService>(),
       ));
+  gh.factory<DeleteTodoBottomSheetViewModel>(
+      () => DeleteTodoBottomSheetViewModel(get<NavigationService>()));
   gh.factory<HomeViewModel>(() => HomeViewModel(
         get<Dio>(),
         get<LocalStorageService>(),
